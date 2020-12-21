@@ -1,0 +1,385 @@
+{
+    "sitesPatterns": [
+        ".+://.*\\.superjob\\.ru.*",
+        ".+://superjob\\.ru.*",
+        ".+://www\\.avito\\.ru.*",
+        ".+://avito\\.ru.*",
+        ".+://joblab\\.ru.*",
+        ".+://www\\.zarplata\\.ru.*",
+        ".+://hr\\.zarplata\\.ru.*",
+        ".+://hh\\.ru.*",
+        ".+://.*\\.hh\\.ru.*",
+        ".+://linkedin\\.com.*",
+        ".+://.*\\.linkedin\\.com.*"
+    ],
+    "pagesPatterns": [
+        ".+://.*\\.superjob\\.ru/resume/[^\\?]+\\d+\\.html",
+        ".+://www\\.avito\\.ru/rezume/[^\\?]+\\d+",
+        ".+://avito\\.ru/rezume/[^\\?]+\\d+",
+        ".+://www\\.avito\\.ru/.+/rezume/[^\\?]+\\d+",
+        ".+://avito\\.ru/.+/rezume/[^\\?]+\\d+",
+        ".+://joblab\\.ru/res\\d+\\.html",
+        ".+://hr\\.zarplata\\.ru/candidates/(?!\\?vacancy_id).*",
+        ".+://hr\\.zarplata\\.ru/resumes/\\d+",
+        ".+://hh\\.ru/resume/.*",
+        ".+://.*\\.hh\\.ru/resume/.*",
+        ".+://linkedin\\.com/in/.*",
+        ".+://.*\\.linkedin\\.com/in/.*"
+    ],
+    "config": [
+        {
+            "pattern": "superjob",
+            "type": "SuperJob",
+            "config": {
+                "name": [
+                    {
+                        "selector": ".ResumeMainHR_content_name"
+                    },
+                    {
+                        "selector": ".ResumeJustBought .sj_typo_medium"
+                    },
+                    {
+                        "selector": ".ResumeMain_name"
+                    },
+                    {
+                        "selector": ".ResumeMainHRNew .ResumeMainHRNew_content .sj_h3:not(.ng-hide)"
+                    },
+                    {
+                        "selector": "#app h3",
+                        "namePartCases": {
+                          "1": ["firstName"],
+                          "2": ["firstName", "lastName"],
+                          "3": ["firstName", "lastName", "middleName"]
+                        }
+                    }
+                ],
+                "cell": [
+                    {
+                        "selector": ".ResumeMainHR_content_row.m_phone",
+                        "unnecessaryPart": "\\s\\d{2}:\\d{2}—\\d{2}:\\d{2}"
+                    },
+                    {
+                        "selector": ".ResumeJustBought .sj_typo_medium",
+                        "index": 1,
+                        "unnecessaryPart": "\\s\\d{2}:\\d{2}—\\d{2}:\\d{2}"
+                    },
+                    {
+                        "selector": ".ResumeMain_contacts_item div",
+                        "unnecessaryPart": "\\s\\d{2}:\\d{2}—\\d{2}:\\d{2}"
+                    },
+                    {
+                        "selector": ".ResumeMainHRNew .ResumeMainHRNew_content .sj_block.sj_h3:not(.ng-hide)",
+                        "unnecessaryPart": "\\s\\d{2}:\\d{2}—\\d{2}:\\d{2}"
+                    },
+                    {
+                        "selector": ".sj-contact_phone .ng-binding",
+                        "unnecessaryPart": "\\s\\d{2}:\\d{2}—\\d{2}:\\d{2}"
+                    },
+                    {
+                        "selector": "#app svg ~ * a[href^='tel']"
+                    }
+                ],
+                "email": [
+                    {
+                        "selector": ".ResumeMainHR_content_row.m_email"
+                    },
+                    {
+                        "selector": ".ResumeJustBought a"
+                    },
+                    {
+                        "selector": ".ResumeMain_contacts_item div",
+                        "index": 1
+                    },
+                    {
+                        "selector": ".ResumeMainHRNew .ResumeMainHRNew_content .sj_block.sj_h3",
+                        "index": 1,
+                        "patternMatch": "^.+@.+$"
+                    },
+                    {
+                        "selector": ".sj-contact_email .ng-binding",
+                        "patternMatch": "^.+@.+$"
+                    },
+                    {
+                        "selector": "#app a[href^='mailto']"
+                    }
+                ],
+                "resume": [
+                    ".ResumeMainHRNew_content",
+                    ".ResumeDetailsNew_row",
+                    ".ResumeMain_position",
+                    ".ResumeMain_location",
+                    ".ResumeMainHR_payment",
+                    ".ResumeMainHR_content_row:not(.m_phone):not(.m_email)",
+                    ".ResumeDetailsHR_line",
+                    ".ResumeMain_block_padding > .ResumeMain_block_inside",
+                    "#app > div > div > div > div > div > div > div > div > div:nth-child(3) > div > div > div:nth-child(1)",
+                    "#app [class^='f-test-block-']"
+                ],
+                "buyContacts": [
+                    ".ResumeOfferBuyContacts",
+                    ".ResumeBuyContactsForm_btn",
+                    ".ResumeBuyContactsByPrice",
+                    ".ResumeContactsToggle_toggle",
+                    ".ResumeMainHR_data .sj_btn.m_green",
+                    ".ResumeAddToFavoritesAndShowContacts",
+                    "#app .f-test-button-Pokazat_kontakty",
+                    "#app .f-test-button-Svyazatsya_s_kandidatom, .f-test-link-Svyazatsya_s_kandidatom"
+                ]
+            }
+        },
+        {
+            "pattern": "avito",
+            "type": "Avito",
+            "config": {
+                "name": [
+                    {
+                        "selector": ".seller-info-name"
+                    }
+                ],
+                "cell": [
+                    {
+                        "selector": ".js-item-phone-button_card",
+                        "patternMatch": "^[\\s\\d()\\+-]+$"
+                    }
+                ],
+                "cellImage": [
+                    {
+                        "action": "getNodeAttribute",
+                        "selector": ".js-item-phone-number img",
+                        "attribute": "src"
+                    }
+                ],
+                "resume": [
+                    ".title-info-main",
+                    ".item-price-value-wrapper",
+                    ".item-params-list",
+                    ".item-description",
+                    ".resume-params"
+                ],
+                "buyContacts": [
+                    ".item-phone-button_hide-phone"
+                ]
+            }
+        },
+        {
+            "pattern": "joblab",
+            "type": "JobMo",
+            "config": {
+                "name": [
+                    {
+                        "selector": ".table-to-div b",
+                        "index": 0,
+                        "namePartCases": {
+                          "1": ["firstName"],
+                          "2": ["firstName", "lastName"],
+                          "3": ["firstName", "middleName", "lastName"]
+                        }
+                    }
+                ],
+                "cell": [
+                    [
+                        {
+                            "action": "actionsUnion",
+                            "actions": [
+                                {
+                                    "action": "waitMutation",
+                                    "selector": "#p"
+                                },
+                                {
+                                    "action": "click",
+                                    "selector": "#p script + a"
+                                }
+                            ]
+                        },
+                        {
+                            "selector": "#p",
+                            "patternMatch": "^[\\s\\d(),\\+]+$"
+                        }
+                    ],
+                    {
+                        "selector": "#p",
+                        "patternMatch": "^[\\s\\d(),\\+]+$"
+                    },
+                    {
+                        "selector": ".table-to-div p",
+                        "index": 3,
+                        "patternMatch": "^[\\s\\d(),\\+]+$"
+                    }
+                ],
+                "email": [
+                    [
+                        {
+                            "action": "actionsUnion",
+                            "actions": [
+                                {
+                                    "action": "waitMutation",
+                                    "selector": "#m"
+                                },
+                                {
+                                    "action": "click",
+                                    "selector": "#m a:not([href*='mailto'])"
+                                }
+                            ]
+                        },
+                        {
+                            "selector": "#m",
+                            "patternMatch": "^[^@]+@[^@]+$"
+                        }
+                    ],
+                    {
+                        "selector": "#m",
+                        "patternMatch": "^[^@]+@[^@]+$"
+                    },
+                    {
+                        "selector": ".table-to-div p",
+                        "index": 5,
+                        "patternMatch": "^[^@]+@[^@]+$"
+                    },
+                    {
+                        "selector": ".table-to-div p",
+                        "index": 3,
+                        "patternMatch": "^[^@]+@[^@]+$"
+                    }
+                ],
+                "resume": [
+                    ".table-to-div tbody tr:nth-child(n+6)"
+                ],
+                "buyContacts": [
+                    "a[href='/employers/registr.php']"
+                ]
+            }
+        },
+        {
+            "pattern": "zarplata.ru",
+            "type": "Zarplata",
+            "config": {
+                "prepare": [
+                    {
+                      "action": "waitMutation",
+                      "selector": ".ui.active.loader"
+                    }
+                ],
+                "name": [
+                    {
+                        "selector": "[class*='header_'] > div > [class*='text_']"
+                    }
+                ],
+                "email": [
+                    {
+                        "selector": "[class*='content_'] a[href^='mailto']",
+                        "patternMatch": "^[^@]+@[^@]+$"
+                    }
+                ],
+                "cell": [
+                    {
+                        "selector": "[class*='content_'] [class*='phone-item_'] > div",
+                        "patternMatch": "^[\\s\\d(),\\-\\+]+$"
+                    }
+                ],
+                "resume": [
+                    ".eleven .column.sixteen"
+                ],
+                "buyContacts": [
+                    "[class*='actions_'] a"
+                ]
+            }
+        },
+        {
+            "pattern": "hh.ru",
+            "type": "hh"
+        },
+        {
+            "pattern": "linkedin",
+            "type": "LinkedIn",
+            "config": {
+              "prepare": [
+                  {
+                      "action": "actionsUnion",
+                      "actions": [
+                          {
+                              "action": "waitMutation",
+                              "selector": "#artdeco-modal-outlet"
+                          },
+                          {
+                              "action": "click",
+                              "selector": "a[data-control-name='contact_see_more']"
+                          }
+                      ]
+                  }
+              ],
+              "name": [
+                  {
+                      "selector": "#pv-contact-info",
+                      "namePartCases": {
+                        "1": ["firstName"],
+                        "2": ["firstName", "lastName"],
+                        "3": ["firstName", "lastName", "middleName"]
+                      }
+                  }
+              ],
+              "cell": [
+                  {
+                      "selector": ".artdeco-modal .ci-phone > ul > li > span"
+                  }
+              ],
+              "email": [
+                  {
+                      "selector": ".artdeco-modal .ci-email .pv-contact-info__contact-link"
+                  }
+              ],
+              "linkedIn": [
+                  {
+                      "action": "getNodeAttribute",
+                      "selector": ".artdeco-modal .ci-vanity-url .pv-contact-info__contact-link",
+                      "attribute": "href"
+                  }
+              ],
+              "afterContacts": [
+                  [
+                      {
+                          "action": "actionsUnion",
+                          "actions": [
+                              {
+                                  "action": "waitMutation",
+                                  "selector": "#artdeco-modal-outlet"
+                              },
+                              {
+                                  "action": "click",
+                                  "selector": ".artdeco-modal .artdeco-modal__dismiss"
+                              }
+                          ]
+                      },
+                      {
+                          "action": "actionsUnion",
+                          "actions": [
+                              {
+                                  "action": "waitMutation",
+                                  "selector": "#oc-background-section"
+                              },
+                              {
+                                  "action": "click",
+                                  "selector": ".pv-top-card-v3--experience-list-item"
+                              }
+                          ]
+                      },
+                      {
+                          "action": "next"
+                      }
+                  ],
+                  {
+                      "action": "click",
+                      "selector": ".lt-line-clamp__more",
+                      "all": true
+                  }
+              ],
+              "resume": [
+                  ".pv-top-card-v3 > div.ph5.pb5 > div.display-flex.mt2",
+                  ".pv-about-section",
+                  "#experience-section",
+                  "#education-section"
+              ],
+              "buyContacts": []
+          }
+        }
+    ]
+}
