@@ -10,7 +10,8 @@
         ".+://hh\\.ru.*",
         ".+://.*\\.hh\\.ru.*",
         ".+://linkedin\\.com.*",
-        ".+://.*\\.linkedin\\.com.*"
+        ".+://.*\\.linkedin\\.com.*",
+        ".+://career.habr\\.com.*"
     ],
     "pagesPatterns": [
         ".+://.*\\.superjob\\.ru/resume/[^\\?]+\\d+\\.html",
@@ -24,9 +25,14 @@
         ".+://hh\\.ru/resume/.*",
         ".+://.*\\.hh\\.ru/resume/.*",
         ".+://linkedin\\.com/in/.*",
-        ".+://.*\\.linkedin\\.com/in/.*"
+        ".+://.*\\.linkedin\\.com/in/.*",
+        ".+://career.habr\\.com.*"
     ],
     "config": [
+        {
+            "pattern": "career.habr.com",
+            "type": null
+        },
         {
             "pattern": "superjob",
             "type": "SuperJob",
