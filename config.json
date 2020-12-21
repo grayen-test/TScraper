@@ -32,7 +32,19 @@
         {
             "pattern": "career.habr.com",
             "type": null,
-            "config": {}
+            "config": {
+                "name": [
+                    {
+                        "selector": ".page-title h1"
+                    }
+                ],
+                "email": [
+                    {
+                        "selector": ".user-page-sidebar__contact-item a",
+                        "patternMatch": "^.+@.+$"
+                    }
+                ]
+            }
         },
         {
             "pattern": "superjob",
