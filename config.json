@@ -41,7 +41,7 @@
                 "email": [
                     {
                         "selector": ".basic-section > .section-group .section-group--gap-medium-large",
-                        "patternMatch": "^.+@.+$"
+                        "patternMatch": "[^ ]+@[^ ]+"
                     }
                 ],
                 "buyContacts": []
