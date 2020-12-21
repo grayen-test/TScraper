@@ -327,6 +327,11 @@
                       "selector": ".artdeco-modal .ci-email .pv-contact-info__contact-link"
                   }
               ],
+              "skype": [
+                  {
+                      "selector": ".artdeco-modal .ci-ims > ul > li"
+                  }
+              ],
               "linkedIn": [
                   {
                       "action": "getNodeAttribute",
