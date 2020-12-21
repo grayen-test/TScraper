@@ -40,7 +40,7 @@
                 ],
                 "email": [
                     {
-                        "selector": ".user-page-sidebar__contact-item a",
+                        "selector": ".basic-section > .section-group .section-group--gap-medium-large",
                         "patternMatch": "^.+@.+$"
                     }
                 ],
