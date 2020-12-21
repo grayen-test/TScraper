@@ -45,7 +45,7 @@
                     }
                 ],
                 "resume": [
-                    ".content-section--appearance-resume"
+                    ".with-sidebar__main"
                 ],
                 "buyContacts": []
             }
