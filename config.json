@@ -44,6 +44,9 @@
                         "patternMatch": "[^ ]+@[^ ]+"
                     }
                 ],
+                "resume": [
+                    ".content-section--appearance-resume"
+                ],
                 "buyContacts": []
             }
         },
