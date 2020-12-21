@@ -31,7 +31,8 @@
     "config": [
         {
             "pattern": "career.habr.com",
-            "type": null
+            "type": null,
+            "config": {}
         },
         {
             "pattern": "superjob",
