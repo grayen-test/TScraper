@@ -372,8 +372,8 @@
               ],
               "skype": [
                   {
-                      "selector": ".artdeco-modal .ci-ims > ul > li",
-                      "patternMatch": "[^\\s]+\\s\\(Skype\\)",
+                      "selector": ".pv-contact-info__contact-type .ci-ims",
+                      "patternMatch": "[^)(\\s]+\\s\\(Skype\\)",
                       "unnecessaryPart": "\\s\\(Skype\\)"
                   }
               ],
