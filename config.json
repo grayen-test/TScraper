@@ -41,14 +41,14 @@
                 "email": [
                     {
                         "selector": ".basic-section > .section-group .section-group--gap-medium-large",
-                        "patternMatch": "[^\s]+@[^\s]+"
+                        "patternMatch": "[^\\s]+@[^\\s]+"
                     }
                 ],
                 "linkedIn": [
                     {
                         "selector": ".basic-section > .section-group .section-group--gap-medium-large",
-                        "patternMatch": "LinkedIn:\s[^\s]+",
-                        "unnecessaryPart": "LinkedIn:\s"
+                        "patternMatch": "LinkedIn:\\s[^\\s]+",
+                        "unnecessaryPart": "LinkedIn:\\s"
                     }
                 ],
                 "resume": [
