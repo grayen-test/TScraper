@@ -47,7 +47,7 @@
                 "linkedIn": [
                     {
                         "selector": ".basic-section > .section-group .section-group--gap-medium-large",
-                        "patternMatch": "LinkedIn: [^ ]+"
+                        "patternMatch": "LinkedIn: [^ ]+",
                         "unnecessaryPart": "LinkedIn: "
                     }
                 ],
