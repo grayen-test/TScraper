@@ -41,14 +41,14 @@
                 "email": [
                     {
                         "selector": ".basic-section > .section-group .section-group--gap-medium-large",
-                        "patternMatch": "[^ ]+@[^ ]+"
+                        "patternMatch": "[^\s]+@[^\s]+"
                     }
                 ],
                 "linkedIn": [
                     {
                         "selector": ".basic-section > .section-group .section-group--gap-medium-large",
-                        "patternMatch": "LinkedIn: [^ ]+",
-                        "unnecessaryPart": "LinkedIn: "
+                        "patternMatch": "LinkedIn:\s[^\s]+",
+                        "unnecessaryPart": "LinkedIn:\s"
                     }
                 ],
                 "resume": [
@@ -359,7 +359,9 @@
               ],
               "skype": [
                   {
-                      "selector": ".artdeco-modal .ci-ims > ul > li"
+                      "selector": ".artdeco-modal .ci-ims > ul > li",
+                      "patternMatch": "[^\s]+\s(Skype)",
+                      "unnecessaryPart": "\s(Skype)"
                   }
               ],
               "linkedIn": [
