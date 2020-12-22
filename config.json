@@ -62,7 +62,7 @@
                   {
                     "selector": ".basic-section > .section-group .section-group--gap-medium-large",
                     "patternMatch": "[(]\\d{3}[)] \\d{3}-\\d{2}-\\d{2}"
-                  },
+                  }
                 ],
                 "resume": [
                     ".with-sidebar__main"
