@@ -54,8 +54,8 @@
                 "skype": [
                     {
                     "selector": ".basic-section > .section-group .section-group--gap-medium-large",
-                    "patternMatch": "Skype:\s[^\s]+",
-                    "unnecessaryPart": "Skype:\s"
+                    "patternMatch": "Skype:\\s[^\\s]+",
+                    "unnecessaryPart": "Skype:\\s"
                     }
                 ],
                 "cell": [
