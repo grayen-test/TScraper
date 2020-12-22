@@ -360,8 +360,8 @@
               "skype": [
                   {
                       "selector": ".artdeco-modal .ci-ims > ul > li",
-                      "patternMatch": "[^\\s]+\\s(Skype)",
-                      "unnecessaryPart": "\\s(Skype)"
+                      "patternMatch": "[^\\s]+\\s\\(Skype\\)",
+                      "unnecessaryPart": "\\s\\(Skype\\)"
                   }
               ],
               "linkedIn": [
