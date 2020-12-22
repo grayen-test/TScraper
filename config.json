@@ -51,6 +51,19 @@
                         "unnecessaryPart": "LinkedIn:\\s"
                     }
                 ],
+                "skype": [
+                    {
+                    "selector": ".basic-section > .section-group .section-group--gap-medium-large",
+                    "patternMatch": "Skype:\s[^\s]+",
+                    "unnecessaryPart": "Skype:\s"
+                    }
+                ],
+                "cell": [
+                  {
+                    "selector": ".basic-section > .section-group .section-group--gap-medium-large",
+                    "patternMatch": "/^(\\s*)?(\\+)?([- _():=+]?\\d[- _():=+]?){10,14}(\\s*)?$/"
+                  },
+                ],
                 "resume": [
                     ".with-sidebar__main"
                 ],
