@@ -11,7 +11,7 @@
         ".+://.*\\.hh\\.ru.*",
         ".+://linkedin\\.com.*",
         ".+://.*\\.linkedin\\.com.*",
-        ".+://career.habr\\.com.*"
+        ".+://career\\.habr\\.com.*"
     ],
     "pagesPatterns": [
         ".+://.*\\.superjob\\.ru/resume/[^\\?]+\\d+\\.html",
@@ -26,7 +26,7 @@
         ".+://.*\\.hh\\.ru/resume/.*",
         ".+://linkedin\\.com/in/.*",
         ".+://.*\\.linkedin\\.com/in/.*",
-        ".+://career.habr\\.com.*"
+        ".+://career\\.habr\\.com.*"
     ],
     "config": [
         {
@@ -61,7 +61,7 @@
                 "cell": [
                   {
                     "selector": ".basic-section > .section-group .section-group--gap-medium-large",
-                    "patternMatch": "/^(\\s*)?(\\+)?([- _():=+]?\\d[- _():=+]?){10,14}(\\s*)?$/"
+                    "patternMatch": "[(]\\d{3}[)] \\d{3}-\\d{2}-\\d{2}"
                   },
                 ],
                 "resume": [
