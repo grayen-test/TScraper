@@ -44,6 +44,13 @@
                         "patternMatch": "[^ ]+@[^ ]+"
                     }
                 ],
+                "linkedIn": [
+                    {
+                        "selector": ".basic-section > .section-group .section-group--gap-medium-large",
+                        "patternMatch": "LinkedIn: [^ ]+"
+                        "unnecessaryPart": "LinkedIn: "
+                    }
+                ],
                 "resume": [
                     ".with-sidebar__main"
                 ],
