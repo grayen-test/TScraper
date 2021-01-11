@@ -1,13 +1,13 @@
 {
   "websites": [
     {
-      "domainPattern": ".+://linkedin[.]com.*",
-      "pagePattern": ".+://linkedin[.]com/in/[^/]+",
+      "domainPattern": ".+://(.+[.]|)linkedin[.]com.*",
+      "pagePattern": ".+://(.+[.]|)linkedin[.]com/in/.+",
       "config": {}
     },
     {
-      "domainPattern": ".+://career[.]habr[.]com.*",
-      "pagePattern": ".+://career[.]habr[.]com/[^/]+",
+      "domainPattern": ".+://(.+[.]|)career[.]habr[.]com.*",
+      "pagePattern": ".+://(.+[.]|)career[.]habr[.]com/.+",
       "config": {}
     }
   ]
