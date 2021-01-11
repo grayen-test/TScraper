@@ -1,0 +1,14 @@
+{
+  "websites": [
+    {
+      "domainPattern": ".+://linkedin[.]com.*",
+      "pagePattern": ".+://linkedin[.]com/in/[^/]+",
+      "config": {}
+    },
+    {
+      "domainPattern": ".+://career[.]habr[.]com.*",
+      "pagePattern": ".+://career[.]habr[.]com/[^/]+",
+      "config": {}
+    }
+  ]
+}
