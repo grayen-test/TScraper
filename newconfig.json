@@ -8,7 +8,195 @@
     {
       "domainPattern": ".+://(.+[.]|)career[.]habr[.]com.*",
       "pagePattern": ".+://(.+[.]|)career[.]habr[.]com/.+",
-      "config": {}
+      "config": {
+        "type": "null",
+        "name": [
+          {
+            "action": "selectNode",
+            "selector": ".page-title__title",
+          },
+          {
+            "action": "text",
+          },
+        ],
+        "contacts": [
+          {
+            "type": "cell",
+            "actions": [
+              {
+                "action": "selectNodes",
+                "selector": ".user-page-sidebar__contact-item",
+              },
+              {
+                "action": "filter",
+                "pattetn": "Телефон: .*",
+              },
+              {
+                "action": "text",
+              },
+              {
+                "action": "replace",
+                "pattern": "Телефон: ",
+                "replace": "",
+              },
+            ],
+          },
+          {
+            "type": "skype",
+            "actions": [
+              {
+                "action": "selectNodes",
+                "selector": ".user-page-sidebar__contact-item",
+              },
+              {
+                "action": "filter",
+                "pattetn": "Skype: .*",
+              },
+              {
+                "action": "text",
+              },
+              {
+                "action": "replace",
+                "pattern": "Skype: ",
+                "replace": "",
+              },
+            ],
+          },
+          {
+            "type": "icq",
+            "actions": [
+              {
+                "action": "selectNodes",
+                "selector": ".user-page-sidebar__contact-item",
+              },
+              {
+                "action": "filter",
+                "pattetn": "ICQ: .*",
+              },
+              {
+                "action": "text",
+              },
+              {
+                "action": "replace",
+                "pattern": "ICQ: ",
+                "replace": "",
+              },
+            ],
+          },
+          {
+            "type": "facebook",
+            "actions": [
+              {
+                "action": "selectNodes",
+                "selector": ".user-page-sidebar__contact-item",
+              },
+              {
+                "action": "filter",
+                "pattetn": "Facebook: .*",
+              },
+              {
+                "action": "text",
+              },
+              {
+                "action": "replace",
+                "pattern": "Facebook: ",
+                "replace": "",
+              },
+            ],
+          },
+          {
+            "type": "vk",
+            "actions": [
+              {
+                "action": "selectNodes",
+                "selector": ".user-page-sidebar__contact-item",
+              },
+              {
+                "action": "filter",
+                "pattetn": "Вконтакте: .*",
+              },
+              {
+                "action": "selectNode",
+                "selector": "a",
+              },
+              {
+                "action": "attribute",
+                "attribute": "href",
+              },
+            ],
+          },
+        ],
+        "resume": [
+          [
+            {
+              "action": "selectNodes",
+              "selector": ".user-page-sidebar__contact-item",
+            },
+            {
+              "action": "filter",
+              "pattetn": "Telegram: .*",
+            },
+            {
+              "action": "selectNode",
+              "selector": "a",
+            },
+            {
+              "action": "attribute",
+              "attribute": "href",
+            },
+          ],
+          [
+            {
+              "action": "selectNodes",
+              "selector": ".user-page-sidebar__contact-item",
+            },
+            {
+              "action": "filter",
+              "pattetn": "GitHub: .*",
+            },
+            {
+              "action": "selectNode",
+              "selector": "a",
+            },
+            {
+              "action": "attribute",
+              "attribute": "href",
+            },
+          ],
+          [
+            {
+              "action": "selectNode",
+              "selector": ".section-group .section-group--gap-smallest",
+            },
+            {
+              "action": "html",
+            },
+          ],
+          [
+            {
+              "action": "selectNode",
+              "selector":
+                  ".user-page-sidebar__meta",
+            },
+            {
+              "action": "selectNode",
+              "selector": ".inline-list",
+            },
+            {
+              "action": "text",
+            },
+          ],
+          [
+            {
+              "action": "selectNode",
+              "selector": ".with-sidebar__main",
+            },
+            {
+              "action": "html",
+            },
+          ],
+        ],
+      }
     }
   ]
 }
