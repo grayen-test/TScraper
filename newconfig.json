@@ -1,6 +1,13 @@
 {
   "websites": [
     {
+      "domainPattern": ".+://(.+[.]|)hh[.]ru.*",
+      "pagePattern": ".+://(.+[.]|)hh[.]ru/resume/.+",
+      "config": {
+        "type": "hh"
+      }
+    },
+    {
       "domainPattern": ".+://(.+[.]|)linkedin[.]com.*",
       "pagePattern": ".+://(.+[.]|)linkedin[.]com/in/.+",
       "config": {
