@@ -166,7 +166,7 @@
       "domainPattern": ".+://(.+[.]|)career[.]habr[.]com.*",
       "pagePattern": ".+://(.+[.]|)career[.]habr[.]com/.+",
       "config": {
-        "type": "moi_krug",
+        "type": null,
         "name": [
           {
             "action": "selectNode",
@@ -252,12 +252,13 @@
                 "pattern": "Facebook: .*"
               },
               {
-                "action": "text"
+                "action": "selectNode",
+                "selector": "a",
+                "isLastParent": true
               },
               {
-                "action": "replace",
-                "pattern": "Facebook: ",
-                "replace": ""
+                "action": "attribute",
+                "attribute": "href"
               }
             ]
           },
