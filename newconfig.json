@@ -186,7 +186,7 @@
               },
               {
                 "action": "filter",
-                "pattetn": "Телефон: .*"
+                "pattern": "Телефон: .*"
               },
               {
                 "action": "text"
@@ -207,7 +207,7 @@
               },
               {
                 "action": "filter",
-                "pattetn": "Skype: .*"
+                "pattern": "Skype: .*"
               },
               {
                 "action": "text"
@@ -228,7 +228,7 @@
               },
               {
                 "action": "filter",
-                "pattetn": "ICQ: .*"
+                "pattern": "ICQ: .*"
               },
               {
                 "action": "text"
@@ -249,7 +249,7 @@
               },
               {
                 "action": "filter",
-                "pattetn": "Facebook: .*"
+                "pattern": "Facebook: .*"
               },
               {
                 "action": "text"
@@ -270,7 +270,7 @@
               },
               {
                 "action": "filter",
-                "pattetn": "Вконтакте: .*"
+                "pattern": "Вконтакте: .*"
               },
               {
                 "action": "selectNode",
@@ -292,7 +292,7 @@
             },
             {
               "action": "filter",
-              "pattetn": "Telegram: .*"
+              "pattern": "Telegram: .*"
             },
             {
               "action": "selectNode",
@@ -311,7 +311,7 @@
             },
             {
               "action": "filter",
-              "pattetn": "GitHub: .*"
+              "pattern": "GitHub: .*"
             },
             {
               "action": "selectNode",
