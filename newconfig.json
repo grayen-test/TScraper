@@ -5,135 +5,159 @@
       "pagePattern": ".+://(.+[.]|)linkedin[.]com/in/.+",
       "config": {
         "type": "LinkedIn",
-        "prepare": [{"action": "scroll"}],
+        "prepare": [{ "action": "scroll" }],
         "name": [
           {
             "action": "selectNode",
             "selector": "a[data-control-name=contact_see_more]"
           },
-          {"action": "click"},
-          {"action": "selectNode", "selector": "#artdeco-modal-outlet"},
-          {"action": "wait"},
-          {"action": "selectNode", "selector": "#pv-contact-info"},
-          {"action": "text"}
+          { "action": "click" },
+          { "action": "selectNode", "selector": "#artdeco-modal-outlet" },
+          { "action": "wait" },
+          { "action": "selectNode", "selector": "#pv-contact-info" },
+          { "action": "text" }
         ],
         "contacts": [
           {
             "type": "cell",
             "actions": [
-              {"action": "selectNode", "selector": ".ci-phone span:first-child"},
-              {"action": "text"}
+              {
+                "action": "selectNode",
+                "selector": ".ci-phone span:first-child"
+              },
+              { "action": "text" }
             ]
           },
           {
             "type": "email",
             "actions": [
-              {"action": "selectNode", "selector": ".ci-email a"},
-              {"action": "text"}
+              { "action": "selectNode", "selector": ".ci-email a" },
+              { "action": "text" }
             ]
           },
           {
             "type": "skype",
             "actions": [
-              {"action": "selectNodes", "selector": ".ci-ims li"},
-              {"action": "filter", "pattern": "Skype"},
-              {"action": "text"},
-              {"action": "replace", "pattern": " [(]Skype[)]", "replace": ""}
+              { "action": "selectNodes", "selector": ".ci-ims li" },
+              { "action": "filter", "pattern": "Skype" },
+              { "action": "text" },
+              { "action": "replace", "pattern": " [(]Skype[)]", "replace": "" }
             ]
           },
           {
             "type": "icq",
             "actions": [
-              {"action": "selectNodes", "selector": ".ci-ims li"},
-              {"action": "filter", "pattern": "ICQ"},
-              {"action": "text"},
-              {"action": "replace", "pattern": " [(]ICQ[)]", "replace": ""}
+              { "action": "selectNodes", "selector": ".ci-ims li" },
+              { "action": "filter", "pattern": "ICQ" },
+              { "action": "text" },
+              { "action": "replace", "pattern": " [(]ICQ[)]", "replace": "" }
             ]
           },
           {
             "type": "personal",
             "actions": [
-              {"action": "selectNode", "selector": ".ci-websites li:first-child a"},
-              {"action": "attribute", "attribute": "href"}
+              {
+                "action": "selectNode",
+                "selector": ".ci-websites li:first-child a"
+              },
+              { "action": "attribute", "attribute": "href" }
             ]
           },
           {
             "type": "linkedin",
             "actions": [
-              {"action": "selectNode", "selector": ".ci-vanity-url a"},
-              {"action": "attribute", "attribute": "href"}
+              { "action": "selectNode", "selector": ".ci-vanity-url a" },
+              { "action": "attribute", "attribute": "href" }
             ]
           }
         ],
         "resume": [
           [
-            {"action": "selectNode", "selector": "#line-clamp-show-more-button"},
-            {"action": "click"},
-            {"action": "selectNode", "selector": ".pv-about-section"},
-            {"action": "html"},
-            {"action": "replace", "pattern": "См. еще", "replace": ""},
-            {"action": "replace", "pattern": "[.]{3}", "replace": ""}
+            {
+              "action": "selectNode",
+              "selector": "#line-clamp-show-more-button"
+            },
+            { "action": "click" },
+            { "action": "selectNode", "selector": ".pv-about-section" },
+            { "action": "html" },
+            { "action": "replace", "pattern": "См. еще", "replace": "" },
+            { "action": "replace", "pattern": "[.]{3}", "replace": "" }
           ],
           [
             {
               "action": "selectNodes",
               "selector": "button[aria-expanded=false].inline-show-more-text__button"
             },
-            {"action": "click"},
-            {"action": "selectNode", "selector": ".experience-section"},
-            {"action": "html"},
-            {"action": "replace", "pattern": "Свернуть", "replace": ""}
+            { "action": "click" },
+            { "action": "selectNode", "selector": ".experience-section" },
+            { "action": "html" },
+            { "action": "replace", "pattern": "Свернуть", "replace": "" }
           ],
           [
-            {"action": "selectNode", "selector": ".education-section"},
-            {"action": "html"},
-            {"action": "replace", "pattern": "Свернуть", "replace": ""}
+            { "action": "selectNode", "selector": ".education-section" },
+            { "action": "html" },
+            { "action": "replace", "pattern": "Свернуть", "replace": "" }
           ],
           [
             {
               "action": "selectNode",
               "selector": "button[aria-controls=skill-categories-expanded][aria-expanded=false]"
             },
-            {"action": "click"},
-            {"action": "selectNode", "selector": ".pv-skill-categories-section"},
-            {"action": "html"}
+            { "action": "click" },
+            {
+              "action": "selectNode",
+              "selector": ".pv-skill-categories-section"
+            },
+            { "action": "html" }
           ],
           [
             {
               "action": "selectNode",
               "selector": "button[aria-controls=recommendation-list][aria-expanded=false]"
             },
-            {"action": "click"},
-            {"action": "selectNode", "selector": ".pv-recommendations-section ul"},
-            {"action": "wait"},
+            { "action": "click" },
+            {
+              "action": "selectNode",
+              "selector": ".pv-recommendations-section ul"
+            },
+            { "action": "wait" },
             {
               "action": "selectNode",
               "selector": "button[aria-controls=recommendation-list][aria-expanded=false]"
             },
-            {"action": "loop"}
+            { "action": "loop" }
           ],
           [
-            {"action": "selectNodes", "selector": "#line-clamp-show-more-button"},
-            {"action": "click"},
-            {"action": "selectNode", "selector": ".pv-recommendations-section"},
-            {"action": "html"},
-            {"action": "replace", "pattern": "См\\. еще", "replace": ""},
-            {"action": "replace", "pattern": "[.]{3}", "replace": ""},
-            {"action": "replace", "pattern": "Свернуть", "replace": ""},
-            {"action": "replace", "pattern": "Показать еще", "replace": ""}
+            {
+              "action": "selectNodes",
+              "selector": "#line-clamp-show-more-button"
+            },
+            { "action": "click" },
+            {
+              "action": "selectNode",
+              "selector": ".pv-recommendations-section"
+            },
+            { "action": "html" },
+            { "action": "replace", "pattern": "См\\. еще", "replace": "" },
+            { "action": "replace", "pattern": "[.]{3}", "replace": "" },
+            { "action": "replace", "pattern": "Свернуть", "replace": "" },
+            { "action": "replace", "pattern": "Показать еще", "replace": "" }
           ],
           [
             {
               "action": "selectNode",
               "selector": "button[aria-controls=languages-expandable-content][aria-expanded=false]"
             },
-            {"action": "click"},
-            {"action": "selectNode", "selector": ".pv-accomplishments-section"},
-            {"action": "html"}
+            { "action": "click" },
+            {
+              "action": "selectNode",
+              "selector": ".pv-accomplishments-section"
+            },
+            { "action": "html" }
           ],
           [
-            {"action": "selectNode", "selector": ".pv-interests-section"},
-            {"action": "html"}
+            { "action": "selectNode", "selector": ".pv-interests-section" },
+            { "action": "html" }
           ]
         ]
       }
@@ -146,108 +170,107 @@
         "name": [
           {
             "action": "selectNode",
-            "selector": ".page-title__title",
+            "selector": ".page-title__title"
           },
           {
-            "action": "text",
-          },
+            "action": "text"
+          }
         ],
         "contacts": [
           {
             "type": "cell",
             "actions": [
               {
-                "action": "
-                s",
-                "selector": ".user-page-sidebar__contact-item",
+                "action": "selectNodes",
+                "selector": ".user-page-sidebar__contact-item"
               },
               {
                 "action": "filter",
-                "pattetn": "Телефон: .*",
+                "pattetn": "Телефон: .*"
               },
               {
-                "action": "text",
+                "action": "text"
               },
               {
                 "action": "replace",
                 "pattern": "Телефон: ",
-                "replace": "",
-              },
-            ],
+                "replace": ""
+              }
+            ]
           },
           {
             "type": "skype",
             "actions": [
               {
                 "action": "selectNodes",
-                "selector": ".user-page-sidebar__contact-item",
+                "selector": ".user-page-sidebar__contact-item"
               },
               {
                 "action": "filter",
-                "pattetn": "Skype: .*",
+                "pattetn": "Skype: .*"
               },
               {
-                "action": "text",
+                "action": "text"
               },
               {
                 "action": "replace",
                 "pattern": "Skype: ",
-                "replace": "",
-              },
-            ],
+                "replace": ""
+              }
+            ]
           },
           {
             "type": "icq",
             "actions": [
               {
                 "action": "selectNodes",
-                "selector": ".user-page-sidebar__contact-item",
+                "selector": ".user-page-sidebar__contact-item"
               },
               {
                 "action": "filter",
-                "pattetn": "ICQ: .*",
+                "pattetn": "ICQ: .*"
               },
               {
-                "action": "text",
+                "action": "text"
               },
               {
                 "action": "replace",
                 "pattern": "ICQ: ",
-                "replace": "",
-              },
-            ],
+                "replace": ""
+              }
+            ]
           },
           {
             "type": "facebook",
             "actions": [
               {
                 "action": "selectNodes",
-                "selector": ".user-page-sidebar__contact-item",
+                "selector": ".user-page-sidebar__contact-item"
               },
               {
                 "action": "filter",
-                "pattetn": "Facebook: .*",
+                "pattetn": "Facebook: .*"
               },
               {
-                "action": "text",
+                "action": "text"
               },
               {
                 "action": "replace",
                 "pattern": "Facebook: ",
-                "replace": "",
-              },
-            ],
+                "replace": ""
+              }
+            ]
           },
           {
             "type": "vk",
             "actions": [
               {
                 "action": "selectNodes",
-                "selector": ".user-page-sidebar__contact-item",
+                "selector": ".user-page-sidebar__contact-item"
               },
               {
                 "action": "filter",
-                "pattetn": "Вконтакте: .*",
+                "pattetn": "Вконтакте: .*"
               },
               {
                 "action": "selectNode",
@@ -256,20 +279,20 @@
               },
               {
                 "action": "attribute",
-                "attribute": "href",
-              },
-            ],
-          },
+                "attribute": "href"
+              }
+            ]
+          }
         ],
         "resume": [
           [
             {
               "action": "selectNodes",
-              "selector": ".user-page-sidebar__contact-item",
+              "selector": ".user-page-sidebar__contact-item"
             },
             {
               "action": "filter",
-              "pattetn": "Telegram: .*",
+              "pattetn": "Telegram: .*"
             },
             {
               "action": "selectNode",
@@ -278,17 +301,17 @@
             },
             {
               "action": "attribute",
-              "attribute": "href",
-            },
+              "attribute": "href"
+            }
           ],
           [
             {
               "action": "selectNodes",
-              "selector": ".user-page-sidebar__contact-item",
+              "selector": ".user-page-sidebar__contact-item"
             },
             {
               "action": "filter",
-              "pattetn": "GitHub: .*",
+              "pattetn": "GitHub: .*"
             },
             {
               "action": "selectNode",
@@ -297,23 +320,22 @@
             },
             {
               "action": "attribute",
-              "attribute": "href",
-            },
+              "attribute": "href"
+            }
           ],
           [
             {
               "action": "selectNode",
-              "selector": ".section-group .section-group--gap-smallest",
+              "selector": ".section-group .section-group--gap-smallest"
             },
             {
-              "action": "html",
-            },
+              "action": "html"
+            }
           ],
           [
             {
               "action": "selectNode",
-              "selector":
-                  ".user-page-sidebar__meta",
+              "selector": ".user-page-sidebar__meta"
             },
             {
               "action": "selectNode",
@@ -321,19 +343,19 @@
               "isLastParent": true
             },
             {
-              "action": "text",
-            },
+              "action": "text"
+            }
           ],
           [
             {
               "action": "selectNode",
-              "selector": ".with-sidebar__main",
+              "selector": ".with-sidebar__main"
             },
             {
-              "action": "html",
-            },
-          ],
-        ],
+              "action": "html"
+            }
+          ]
+        ]
       }
     }
   ]
