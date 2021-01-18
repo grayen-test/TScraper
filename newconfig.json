@@ -3,13 +3,146 @@
     {
       "domainPattern": ".+://(.+[.]|)linkedin[.]com.*",
       "pagePattern": ".+://(.+[.]|)linkedin[.]com/in/.+",
-      "config": {}
+      "config": {
+        "type": "LinkedIn",
+        "prepare": [{"action": "scroll"}],
+        "name": [
+          {
+            "action": "selectNode",
+            "selector": "a[data-control-name=contact_see_more]"
+          },
+          {"action": "click"},
+          {"action": "selectNode", "selector": "#artdeco-modal-outlet"},
+          {"action": "wait"},
+          {"action": "selectNode", "selector": "#pv-contact-info"},
+          {"action": "text"}
+        ],
+        "contacts": [
+          {
+            "type": "cell",
+            "actions": [
+              {"action": "selectNode", "selector": ".ci-phone span:first-child"},
+              {"action": "text"}
+            ]
+          },
+          {
+            "type": "email",
+            "actions": [
+              {"action": "selectNode", "selector": ".ci-email a"},
+              {"action": "text"}
+            ]
+          },
+          {
+            "type": "skype",
+            "actions": [
+              {"action": "selectNodes", "selector": ".ci-ims li"},
+              {"action": "filter", "pattern": "Skype"},
+              {"action": "text"},
+              {"action": "replace", "pattern": " [(]Skype[)]", "replace": ""}
+            ]
+          },
+          {
+            "type": "icq",
+            "actions": [
+              {"action": "selectNodes", "selector": ".ci-ims li"},
+              {"action": "filter", "pattern": "ICQ"},
+              {"action": "text"},
+              {"action": "replace", "pattern": " [(]ICQ[)]", "replace": ""}
+            ]
+          },
+          {
+            "type": "personal",
+            "actions": [
+              {"action": "selectNode", "selector": ".ci-websites li:first-child a"},
+              {"action": "attribute", "attribute": "href"}
+            ]
+          },
+          {
+            "type": "linkedin",
+            "actions": [
+              {"action": "selectNode", "selector": ".ci-vanity-url a"},
+              {"action": "attribute", "attribute": "href"}
+            ]
+          }
+        ],
+        "resume": [
+          [
+            {"action": "selectNode", "selector": "#line-clamp-show-more-button"},
+            {"action": "click"},
+            {"action": "selectNode", "selector": ".pv-about-section"},
+            {"action": "html"},
+            {"action": "replace", "pattern": "См. еще", "replace": ""},
+            {"action": "replace", "pattern": "[.]{3}", "replace": ""}
+          ],
+          [
+            {
+              "action": "selectNodes",
+              "selector": "button[aria-expanded=false].inline-show-more-text__button"
+            },
+            {"action": "click"},
+            {"action": "selectNode", "selector": ".experience-section"},
+            {"action": "html"},
+            {"action": "replace", "pattern": "Свернуть", "replace": ""}
+          ],
+          [
+            {"action": "selectNode", "selector": ".education-section"},
+            {"action": "html"},
+            {"action": "replace", "pattern": "Свернуть", "replace": ""}
+          ],
+          [
+            {
+              "action": "selectNode",
+              "selector": "button[aria-controls=skill-categories-expanded][aria-expanded=false]"
+            },
+            {"action": "click"},
+            {"action": "selectNode", "selector": ".pv-skill-categories-section"},
+            {"action": "html"}
+          ],
+          [
+            {
+              "action": "selectNode",
+              "selector": "button[aria-controls=recommendation-list][aria-expanded=false]"
+            },
+            {"action": "click"},
+            {"action": "selectNode", "selector": ".pv-recommendations-section ul"},
+            {"action": "wait"},
+            {
+              "action": "selectNode",
+              "selector": "button[aria-controls=recommendation-list][aria-expanded=false]"
+            },
+            {"action": "loop"}
+          ],
+          [
+            {"action": "selectNodes", "selector": "#line-clamp-show-more-button"},
+            {"action": "click"},
+            {"action": "selectNode", "selector": ".pv-recommendations-section"},
+            {"action": "html"},
+            {"action": "replace", "pattern": "См\\. еще", "replace": ""},
+            {"action": "replace", "pattern": "[.]{3}", "replace": ""},
+            {"action": "replace", "pattern": "Свернуть", "replace": ""},
+            {"action": "replace", "pattern": "Показать еще", "replace": ""}
+          ],
+          [
+            {
+              "action": "selectNode",
+              "selector": "button[aria-controls=languages-expandable-content][aria-expanded=false]"
+            },
+            {"action": "click"},
+            {"action": "selectNode", "selector": ".pv-accomplishments-section"},
+            {"action": "html"}
+          ],
+          [
+            {"action": "selectNode", "selector": ".pv-interests-section"},
+            {"action": "html"}
+          ]
+        ]
+      }
     },
     {
       "domainPattern": ".+://(.+[.]|)career[.]habr[.]com.*",
       "pagePattern": ".+://(.+[.]|)career[.]habr[.]com/.+",
       "config": {
-        "type": "null",
+        "type": "moi_krug",
         "name": [
           {
             "action": "selectNode",
@@ -24,7 +157,8 @@
             "type": "cell",
             "actions": [
               {
-                "action": "selectNodes",
+                "action": "
+                s",
                 "selector": ".user-page-sidebar__contact-item",
               },
               {
@@ -118,6 +252,7 @@
               {
                 "action": "selectNode",
                 "selector": "a",
+                "isLastParent": true
               },
               {
                 "action": "attribute",
@@ -139,6 +274,7 @@
             {
               "action": "selectNode",
               "selector": "a",
+              "isLastParent": true
             },
             {
               "action": "attribute",
@@ -157,6 +293,7 @@
             {
               "action": "selectNode",
               "selector": "a",
+              "isLastParent": true
             },
             {
               "action": "attribute",
@@ -181,6 +318,7 @@
             {
               "action": "selectNode",
               "selector": ".inline-list",
+              "isLastParent": true
             },
             {
               "action": "text",
