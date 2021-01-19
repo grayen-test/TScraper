@@ -176,6 +176,29 @@
             "action": "text"
           }
         ],
+        "area": [
+          {
+            "action": "selectNodes",
+            "selector": ".basic-section div.section-group div"
+          },
+          {
+            "action": "filter",
+            "pattern": "Местоположение: .*"
+          },
+          {
+            "action": "selectNode",
+            "selector": "span span",
+            "isLastParent": true
+          },
+          {
+            "action": "text"
+          },
+          {
+            "action": "replace",
+            "pattern": "[^,]+,",
+            "replace": ""
+          }
+        ],
         "contacts": [
           {
             "type": "cell",
